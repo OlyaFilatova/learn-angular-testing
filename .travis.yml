@@ -30,4 +30,5 @@ deploy:
   skip-cleanup: true
   keep-history: true
   local-dir: ./dist/
+  github-token: $GITHUB_TOKEN
   on:
