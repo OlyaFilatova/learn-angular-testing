@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "10.15.0"
+dist: trusty
 
 branches:
   only:
@@ -22,6 +23,7 @@ install:
   - npm install
  
 script:
+  - npm run lint
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   - npm run build --prod
