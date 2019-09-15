@@ -26,12 +26,13 @@ script:
   - npm run lint
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-  - npm run build --prod
+  - yarn build --base-href /learn-angular-testing/
 
 deploy:
   provider: pages
-  skip-cleanup: false
-  keep-history: false
-  local-dir: ./dist/
-  github-token: $GITHUB_TOKEN
+  skip_cleanup: true
+  keep_history: false
+  local_dir: dist/learn-angular-testing
+  github_token: $GITHUB_TOKEN
   on:
+    branch: master
