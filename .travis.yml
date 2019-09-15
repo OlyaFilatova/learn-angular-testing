@@ -27,8 +27,8 @@ script:
 
 deploy:
   provider: pages
-  skip-cleanup: true
-  keep-history: true
+  skip-cleanup: false
+  keep-history: false
   local-dir: ./dist/
   github-token: $GITHUB_TOKEN
   on:
