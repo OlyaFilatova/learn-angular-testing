@@ -25,7 +25,7 @@ describe('Test http service with HttpClientTestingModule', () => {
   });
 
   it('can test HttpClient.get', () => {
-    const testData: Data = {name:'Test Data'};
+    const testData: Data = { name: 'Test Data' };
     httpClient.get<Data>(testUrl).
       subscribe(data => expect(data).toEqual(testData));
     const req = httpTestingController.expectOne('test/url');
