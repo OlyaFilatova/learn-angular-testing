@@ -7,27 +7,27 @@ export function asyncData<T>(data: T) {
 }
 
 describe('Test http service', () => {
-	let httpClientSpy: { get: jasmine.Spy };
-	let httpService: HttpService;
+  let httpClientSpy: { get: jasmine.Spy };
+  let httpService: HttpService;
 
-	beforeEach(() => {
-		httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-		httpService = new HttpService(<any> httpClientSpy);
-	});
+  beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    httpService = new HttpService(<any> httpClientSpy);
+  });
 
-	it('should return expected results (HttpClient called once)', () => {
-		const expectedResults: Result[] = [
-			{ id: 1, value: 'test 1' },
-			{ id: 2, value: 'test 2' }
-		];
+  it('should return expected results (HttpClient called once)', () => {
+    const expectedResults: Result[] = [
+      { id: 1, value: 'test 1' },
+      { id: 2, value: 'test 2' }
+    ];
 
-		httpClientSpy.get.and.returnValue(asyncData(expectedResults));
+    httpClientSpy.get.and.returnValue(asyncData(expectedResults));
 
-		httpService.getResults().subscribe(
-			results => expect(results).toEqual(expectedResults, 'expected results'),
-			fail
-		);
+    httpService.getResults().subscribe(
+      results => expect(results).toEqual(expectedResults, 'expected results'),
+      fail
+    );
 
-		expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
-	});
+    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
+  });
 });
