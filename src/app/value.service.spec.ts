@@ -1,6 +1,6 @@
 import { ValueService } from './value.service';
 
-describe('ValueService', () => {
+describe('Simple service without Angular testing support', () => {
 	let service: ValueService;
 	beforeEach(() => { service = new ValueService(); });
 
