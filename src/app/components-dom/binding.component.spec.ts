@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BindingComponent } from './binding.component';
 
 describe('Test component binding', () => {
@@ -6,15 +6,14 @@ describe('Test component binding', () => {
   let fixture: ComponentFixture<BindingComponent>;
   let h1: HTMLElement;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BindingComponent ]
-    });
-
+    }).compileComponents();
     fixture = TestBed.createComponent(BindingComponent);
     component = fixture.componentInstance;
     h1 = fixture.nativeElement.querySelector('h1');
-  });
+  }));
 
   it('should not display title in the DOM after createComponent()', () => {
     expect(h1.textContent).toEqual('');

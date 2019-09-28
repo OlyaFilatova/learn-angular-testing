@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-binding',
-  template: '<h1>{{title}}</h1>',
+  templateUrl: './binding.component.html',
   styles: ['h1 { color: green; font-size: 350% }']
 })
 export class BindingComponent {
